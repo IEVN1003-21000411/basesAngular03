@@ -1,1 +1,51 @@
-<h1>Lista Dargon Ball</h1>
+
+
+
+<div class="card">
+    <div class="card-header">
+        <h1>Lista Dragon Ball</h1>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-2">Filtrar por:</div>
+            <div class="col-md-4">
+                <input [(ngModel)]="listFilter" type="text" placeholder="Filtrar heroe"><!--Enlace bidireccional-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Filtro: {{ listFilter }}</h3>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table tablr-striped" *ngIf="heroes.length>0">
+                <thead>
+                    <tr>
+                        <th>
+                          <button type="button" class="btn btn-primary" (click)="showImage()"><!--Se manda a llamar la funcion de showImagen-->
+                            {{ muestraImage ? 'Ocultar' : 'Mostrar' }} imagen <!--Hacemos un enlace de evento para que el boton para poder mostrar o ocultar la imagen-->
+                          </button>
+                        </th>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Raza</th>
+                        <th>Ki</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let heroe of heroes">
+                        <td>
+                          <img *ngIf="muestraImage" [src]="heroe.Image"
+                          [style.width.px]="imagenWidth"
+                          [style.margin.px]="imagenMargin"/>
+                        </td>
+                        <td>{{ heroe.nombre }}</td>
+                        <td>{{ heroe.Descripcion }}</td>
+                        <td>{{ heroe.race }}</td>
+                        <td>{{ heroe.ki }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
