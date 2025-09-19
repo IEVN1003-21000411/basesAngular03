@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { race } from 'rxjs';
+import { HereosInterfase } from '../hereos-interfase';
 
 @Component({
   selector: 'app-heroes',
@@ -17,7 +18,7 @@ export class HeroesComponent {
     this.muestraImage =!this.muestraImage;
   }
 
-  heroes:any[]=[
+  heroes:HereosInterfase[]=[
     {
       Image: "https://dragonball-api.com/characters/picolo_normal.webp",
       nombre: "Picoro",

@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes/heroes.component';
 import { FormsModule } from '@angular/forms';
+import { HeroFilterPipe } from './heroes/hero-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent
+    HeroesComponent,
+    HeroFilterPipe
   ],
   imports: [
     BrowserModule,
