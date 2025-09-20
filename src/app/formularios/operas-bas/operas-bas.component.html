@@ -1,0 +1,46 @@
+<form>
+  <div class="col-6">
+    <div class="mb-3">
+      <div class="form-group pt-4">
+        <label for="from-label">Numero 1</label>
+        <input type="" class="form-control" [(ngModel)]="num1" name="num1"
+        id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entre numero 1">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Numero 2</label>
+        <input type="" class="form-control" [(ngModel)]="num2" name="name2"
+        id="exampleInputPassword1" placeholder="Enter numero 2">
+      </div>
+      <hr>
+      <button (click)="CalcularOperacion()" type="submit" class="btn btn-primary">Calcular</button>
+
+    </div>
+    <div class="col-6">
+      <h1>Tu resultado es: {{ resultado }}</h1>
+    </div>
+
+  </div>
+</form>
+<form>
+  <div>
+    <label>
+      <input type="radio" name="opcion" [(ngModel)]="seleccion" value="sumar">sumar
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="radio" name="opcion" [(ngModel)]="seleccion" value="restar">restar
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="radio" name="opcion" [(ngModel)]="seleccion" value="multiplicar">multiplicar
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="radio" name="opcion" [(ngModel)]="seleccion" value="dividir">dividir
+    </label>
+  </div>
+</form>
+
