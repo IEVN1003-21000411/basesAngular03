@@ -1,0 +1,151 @@
+<div class="main-container">
+
+  <header>
+    <h1>Cinepolis</h1>
+  </header>
+
+  <div class="form-sections">
+
+    <div class="section-entradas">
+      <h2>Entradas</h2>
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" [(ngModel)]="Nombre">
+      </div>
+      <div class="form-group">
+        <label for="compradores">Cantidad Compradores</label>
+        <input type="number" id="compradores" [(ngModel)]="CantidadCompradores">
+      </div>
+      <div class="form-group">
+        <label>Tarjeta Cineco</label>
+        <div class="radio-group">
+          <input type="radio" id="tarjetaSi" name="tarjeta" value="SI" [(ngModel)]="Tarjeta">
+          <label for="tarjetaSi">Sí</label>
+          <input type="radio" id="tarjetaNo" name="tarjeta" value="NO" [(ngModel)]="Tarjeta">
+          <label for="tarjetaNo">No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="boletos">Cantidad De Boletos</label>
+        <input type="number" id="boletos" [(ngModel)]="CantidadBoletos">
+      </div>
+    </div>
+
+    <div class="section-salidas">
+      <h2>Salidas</h2>
+      <div class="form-group">
+        <label for="valorPagar">Valor a Pagar</label>
+        <input type="text" id="valorPagar" [value]="total.toFixed(2)" readonly>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="acciones">
+    <h2>Acciones</h2>
+    <button (click)="Procesar()">Procesar</button>
+  </div>
+</div>
+
+
+<style>
+.main-container {
+  background-color: #1e3a8a; /* azul cinepolis */
+  color: white;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  background-color: white;
+  color: black;
+  display: inline-block;
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+
+.form-sections {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.section-entradas,
+.section-salidas {
+  border: 2px solid white;
+  padding: 15px;
+  border-radius: 8px;
+  width: 40%;
+}
+
+.section-entradas h2,
+.section-salidas h2,
+.acciones h2 {
+  margin-top: -10px;
+  background-color: #1e3a8a;
+  display: inline-block;
+  padding: 0 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 6px;
+  border-radius: 4px;
+  border: none;
+}
+
+.radio-group {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.acciones {
+  text-align: center;
+  border: 2px solid white;
+  padding: 15px;
+  border-radius: 8px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #facc15; /* amarillo cinepolis */
+}
+
+.mensaje-container {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+}
+</style>
