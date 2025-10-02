@@ -1,0 +1,72 @@
+<div class="resistor-container">
+  <h2>Calculadora de Resistencia</h2>
+
+  <div class="options-container">
+    <!-- Banda 1 -->
+    <div class="banda">
+      <h3>1ra. Banda</h3>
+      <div *ngFor="let color of colores; let i = index" class="color-option" [style.backgroundColor]="color.hex">
+        <input type="radio" name="banda1" [(ngModel)]="resintencia.Banda1" [value]="i">
+        <span>{{ color.nombre }}</span>
+      </div>
+    </div>
+
+    <!-- Banda 2 -->
+    <div class="banda">
+      <h3>2da. Banda</h3>
+      <div *ngFor="let color of colores; let i = index" class="color-option" [style.backgroundColor]="color.hex">
+        <input type="radio" name="banda2" [(ngModel)]="resintencia.Banda2" [value]="i">
+        <span>{{ color.nombre }}</span>
+      </div>
+    </div>
+
+    <!-- Banda 3 Multiplicador -->
+    <div class="banda">
+      <h3>3ra. Banda<br>Multiplicador</h3>
+      <div *ngFor="let color of colores; let i = index" class="color-option" [style.backgroundColor]="color.hex">
+        <input type="radio" name="multiplicador" [(ngModel)]="resintencia.Banda3Multiplicador" [value]="i">
+        <span>x{{ getMultiplier(i) }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tolerancia -->
+  <div class="tolerancia">
+    <h3>Tolerancia</h3>
+    <div *ngFor="let tol of coloresTolerancia; let i = index" class="color-option" [style.backgroundColor]="tol.hex">
+      <input type="radio" name="tolerancia" [(ngModel)]="resintencia.Banda4Tolerancia" [value]="i">
+      <span>{{ tol.nombre }}</span>
+    </div>
+  </div>
+  <button (click)="calculosDeResistencia(resintencia.Banda1, resintencia.Banda2, resintencia.Banda3Multiplicador, resintencia.Banda4Tolerancia)">
+    Calcular Resistencia
+  </button><!--Mnada a la funcion que tengo en el contructor ts -->
+  <table class="resultado" *ngIf="resintencia.valor">
+    <tr>
+      <th>Color1</th>
+      <th>Color2</th>
+      <th>Color3</th>
+      <th>Tolerancia</th>
+      <th>Valor</th>
+      <th>Valor máximo</th>
+      <th>Valor mínimo</th>
+    </tr>
+    <tr>
+      <td [style.backgroundColor]="colores[resintencia.Banda1].hex">
+        {{ colores[resintencia.Banda1].nombre }}
+      </td>
+      <td [style.backgroundColor]="colores[resintencia.Banda2].hex">
+        {{ colores[resintencia.Banda2].nombre }}
+      </td>
+      <td [style.backgroundColor]="colores[resintencia.Banda3Multiplicador].hex">
+        {{ colores[resintencia.Banda3Multiplicador].nombre }}
+      </td>
+      <td [style.backgroundColor]="coloresTolerancia[resintencia.Banda4Tolerancia].hex">
+        {{ coloresTolerancia[resintencia.Banda4Tolerancia].nombre }}
+      </td>
+      <td>{{ resintencia.valor }}</td>
+      <td>{{ resintencia.ValorMax }}</td>
+      <td>{{ resintencia.ValorMin }}</td>
+    </tr>
+  </table>
+</div>
